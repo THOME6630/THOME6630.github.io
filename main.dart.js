@@ -99497,7 +99497,7 @@ l=g.v8(B.od,e.c,"\u0e41\u0e1c\u0e19\u0e01")
 k=g.v8(B.of,B.b.bu(e.w,", "),"\u0e27\u0e31\u0e19\u0e2b\u0e22\u0e38\u0e14\u0e1b\u0e23\u0e30\u0e08\u0e33")
 j=e.x
 i=A.kD("th_TH").bY(j)
-o=A.h2(A.b9(A.b([p,B.cS,l,B.cS,k,B.cS,g.Rd("\u0e17\u0e33\u0e07\u0e32\u0e19\u0e21\u0e32\u0e41\u0e25\u0e49\u0e27 "+B.e.bA(new A.aE(Date.now(),0,!1).d5(j).a,864e8)+" \u0e27\u0e31\u0e19",B.jO,i,"\u0e27\u0e31\u0e19\u0e17\u0e35\u0e48\u0e40\u0e23\u0e34\u0e48\u0e21\u0e17\u0e33\u0e07\u0e32\u0e19",f),B.cS,g.v8(B.og,e.e,"\u0e2d\u0e35\u0e40\u0e21\u0e25"),B.cS,g.v8(B.oh,e.r,"\u0e40\u0e1a\u0e2d\u0e23\u0e4c\u0e15\u0e34\u0e14\u0e15\u0e48\u0e2d")],m),B.t,B.o,B.r,0,B.w),2,f,n,new A.c3(o,B.k))
+o=A.h2(A.b9(A.b([p,B.cS,l,B.cS,k,B.cS,g.Rd("\u0e2d\u0e32\u0e22\u0e38\u0e07\u0e32\u0e19 "+B.e.bA(new A.aE(Date.now(),0,!1).d5(j).a,864e8)+" \u0e27\u0e31\u0e19",B.jO,i,"\u0e27\u0e31\u0e19\u0e17\u0e35\u0e48\u0e40\u0e23\u0e34\u0e48\u0e21\u0e17\u0e33\u0e07\u0e32\u0e19",f),B.cS,g.v8(B.og,e.e,"\u0e2d\u0e35\u0e40\u0e21\u0e25"),B.cS,g.v8(B.oh,e.r,"\u0e40\u0e1a\u0e2d\u0e23\u0e4c\u0e15\u0e34\u0e14\u0e15\u0e48\u0e2d")],m),B.t,B.o,B.r,0,B.w),2,f,n,new A.c3(o,B.k))
 n=A.G(a).ok.r
 e=A.S("\u0e2a\u0e23\u0e38\u0e1b\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e01\u0e32\u0e23\u0e25\u0e32",f,f,f,n==null?f:n.ij(B.ap),f,f,f)
 r=A.ax(r,B.av.B()>>>16&255,B.av.B()>>>8&255,B.av.B()&255)
