@@ -1,11 +1,11 @@
 {
-    "name": "thome_app",
-    "short_name": "thome_app",
+    "name": "THOME Application",
+    "short_name": "THOME",
     "start_url": ".",
-    "display": "standalone",
+    "display": "standalone", 
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "App for Employee Management",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
