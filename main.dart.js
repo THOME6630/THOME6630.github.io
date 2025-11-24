@@ -100930,7 +100930,7 @@ s.at=!1
 s.ax="\u0e44\u0e21\u0e48\u0e1e\u0e1a\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e1e\u0e19\u0e31\u0e01\u0e07\u0e32\u0e19"},
 $S:0}
 A.avq.prototype={
-$1(a){return B.c.d0(a.a)===B.c.d0(this.a.a)&&a.w==="\u0e22\u0e37\u0e19\u0e22\u0e31\u0e19\u0e41\u0e25\u0e49\u0e27"&&A.a8(a.d)===A.a8(new A.ak(Date.now(),0,!1))},
+$1(a){return B.c.d0(a.a)===B.c.d0(this.a.a)&&a.w==="\u0e2d\u0e19\u0e38\u0e21\u0e31\u0e15\u0e34\u0e41\u0e25\u0e49\u0e27"&&A.a8(a.d)===A.a8(new A.ak(Date.now(),0,!1))},
 $S:49}
 A.avr.prototype={
 $0(){var s=this.b,r=this.a
@@ -101899,7 +101899,7 @@ Sy(){var s,r,q,p,o,n,m,l,k={}
 k.a=k.b=k.c=k.d=0
 s=A.a8(new A.ak(Date.now(),0,!1))
 for(r=this.e,q=r.length,p=0;p<q;++p){o=r[p]
-if(o.w!=="\u0e22\u0e37\u0e19\u0e22\u0e31\u0e19\u0e41\u0e25\u0e49\u0e27")continue
+if(o.w!=="\u0e2d\u0e19\u0e38\u0e21\u0e31\u0e15\u0e34\u0e41\u0e25\u0e49\u0e27")continue
 n=o.d
 if(A.a8(n)!==s)continue
 if(o.c==="\u0e25\u0e32\u0e04\u0e23\u0e36\u0e48\u0e07\u0e27\u0e31\u0e19")m=0.5
@@ -101991,7 +101991,7 @@ case 2:return A.p(null,r)}})
 return A.q($async$BK,r)},
 Sn(a){var s,r,q=null,p="th_TH",o=a.d,n=a.e,m=o.j(0,n)?A.r3(p).bE(o):A.r3(p).bE(o)+" - "+A.r3(p).bE(n)
 o=a.w
-if(o==="\u0e22\u0e37\u0e19\u0e22\u0e31\u0e19\u0e41\u0e25\u0e49\u0e27")s=B.aA
+if(o==="\u0e2d\u0e19\u0e38\u0e21\u0e31\u0e15\u0e34\u0e41\u0e25\u0e49\u0e27")s=B.aA
 else s=o==="\u0e44\u0e21\u0e48\u0e2d\u0e19\u0e38\u0e21\u0e31\u0e15\u0e34"?B.G:B.ag
 o=A.aZ(q,q,B.n,q,q,new A.bG(s,q,q,q,q,q,B.b9),q,10,q,q,q,q,10)
 n=A.G(a.b+" ("+a.c+")",q,q,q,q,B.Nd,q,q,q)
@@ -104498,7 +104498,7 @@ KG(a,b,c){return this.KH(null,a,!1,null,b,c)},
 aro(a,b,c,d){return this.KH(a,b,!1,null,c,d)},
 Xh(a,b,c,d,e){return this.KH(null,a,b,c,d,e)},
 Sp(a){var s,r,q,p=null,o=a.r
-if(o==="\u0e22\u0e37\u0e19\u0e22\u0e31\u0e19\u0e41\u0e25\u0e49\u0e27")s=B.aA
+if(o==="\u0e2d\u0e19\u0e38\u0e21\u0e31\u0e15\u0e34\u0e41\u0e25\u0e49\u0e27")s=B.aA
 else s=o==="\u0e44\u0e21\u0e48\u0e2d\u0e19\u0e38\u0e21\u0e31\u0e15\u0e34"?B.G:B.ag
 o=A.aZ(p,p,B.n,p,p,new A.bG(s,p,p,p,p,p,B.b9),p,10,p,p,p,p,10)
 r=A.G(A.of("th_TH").bE(a.a),p,p,p,p,p,p,p,p)
