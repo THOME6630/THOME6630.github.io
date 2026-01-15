@@ -1,57 +1,111 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
   <base href="/">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
 
-  <!-- iOS meta tags & icons -->
-  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="thome_app">
+  <meta name="apple-mobile-web-app-title" content="thome_web">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-<link rel="icon" type="image/png" href="icons/Icon-192.png"/>
-
-  <title>thome_app</title>
+  <title>thome_web</title>
   <link rel="manifest" href="manifest.json">
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-messaging-compat.js"></script>
 
-<script>
-  // REPLACE THIS with the SAME config as in step 2
-  var firebaseConfig = {
-  apiKey: "AIzaSyCLibgUN9ekLBegubc0LFOI05quMCu3HVQ",
-  authDomain: "oti-management-app.firebaseapp.com",
-  projectId: "oti-management-app",
-  storageBucket: "oti-management-app.firebasestorage.app",
-  messagingSenderId: "756210239018",
-  appId: "1:756210239018:web:99c8559034d028bb1ae553",
-  measurementId: "G-NBR42L5SJ7"
-};
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>
+  <script>
+    // --- CONFIGURATION ---
+    const CLIENT_ID = '756210239018-7v8nqfnakh4j32jbfl9t6evtlftli132.apps.googleusercontent.com';
+    const SCOPES = 'https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email';
+    
+    let tokenClient;
+
+    // A. Initialize Client (Called by Flutter on Start)
+    window.initGoogleJs = function() {
+      console.log("[JS] Initializing Google Token Client...");
+      
+      // Wait for Google Script to load
+      if (typeof google === 'undefined') {
+         console.warn("[JS] Google script not ready, retrying...");
+         setTimeout(window.initGoogleJs, 500); 
+         return;
+      }
+      
+      tokenClient = google.accounts.oauth2.initTokenClient({
+        client_id: CLIENT_ID,
+        scope: SCOPES,
+        callback: (response) => {
+          if (response.access_token) {
+            console.log("[JS] Token Received!");
+            // Save Token to LocalStorage
+            localStorage.setItem("js_access_token", response.access_token);
+            
+            // Fetch User Details (Email/Name)
+            fetchUserInfo(response.access_token);
+          } else {
+            console.error("[JS] Token Error:", response);
+            window.dispatchEvent(new Event('google-auth-error'));
+          }
+        },
+      });
+      console.log("[JS] Google Client Initialized.");
+    };
+
+    // B. Trigger Popup (Called by Flutter "Sign In" button)
+    window.triggerGoogleLogin = function() {
+      if (!tokenClient) {
+        console.log("[JS] Client not ready, initializing...");
+        window.initGoogleJs();
+      }
+      // Add small delay to ensure init
+      setTimeout(() => {
+        if(tokenClient) {
+           console.log("[JS] Requesting Access Token...");
+           tokenClient.requestAccessToken();
+        } else {
+           alert("Google Client failed to load. Please refresh.");
+        }
+      }, 500);
+    }
+
+    // C. Helper: Fetch User Info & Notify Flutter
+    async function fetchUserInfo(accessToken) {
+      try {
+        const res = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+          headers: { 'Authorization': `Bearer ${accessToken}` }
+        });
+        const user = await res.json();
+        
+        // Save Profile to Storage
+        localStorage.setItem("js_user_profile", JSON.stringify(user));
+        console.log("[JS] User Profile Saved:", user.email);
+
+        // Notify Flutter that login is complete
+        window.dispatchEvent(new Event('google-auth-success'));
+      } catch (e) {
+        console.error("[JS] Failed to fetch user info", e);
+      }
+    }
+
+    // D. Logout
+    window.jsLogout = function() {
+      const token = localStorage.getItem("js_access_token");
+      if (token && typeof google !== 'undefined') {
+        try {
+           google.accounts.oauth2.revoke(token, () => { console.log("[JS] Token Revoked"); });
+        } catch(e) { console.log("Revoke error", e); }
+      }
+      localStorage.removeItem("js_access_token");
+      localStorage.removeItem("js_user_profile");
+      console.log("[JS] Session Cleared");
+    }
+  </script>
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>
